@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Billiard AZ — аксессуары</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__row">
+      <div class="brand">
+        <div class="brand__logo">🎱</div>
+        <div class="brand__text">
+          <div class="brand__name">Billiard AZ</div>
+          <div class="brand__tag">Кии • Мел • Аксессуары</div>
+        </div>
+      </div>
+
+      <div class="header__actions">
+        <input id="searchInput" class="search" type="search" placeholder="Поиск: кий, мел, перчатки..." />
+        <button id="openCartBtn" class="btn btn--ghost">
+          Корзина <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="toolbar">
+      <div class="filters">
+        <button class="chip is-active" data-category="all">Все</button>
+        <button class="chip" data-category="cue">Кии</button>
+        <button class="chip" data-category="chalk">Мел</button>
+        <button class="chip" data-category="glove">Перчатки</button>
+        <button class="chip" data-category="case">Чехлы</button>
+        <button class="chip" data-category="tip">Наклейки</button>
+        <button class="chip" data-category="other">Другое</button>
+      </div>
+
+      <div class="sort">
+        <label class="label" for="sortSelect">Сортировка</label>
+        <select id="sortSelect" class="select">
+          <option value="popular">Популярное</option>
+          <option value="price_asc">Цена ↑</option>
+          <option value="price_desc">Цена ↓</option>
+          <option value="name_asc">Название A→Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section>
+      <div id="productsGrid" class="grid"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__box">
+        <div class="footer__title">Доставка и оплата</div>
+        <div class="footer__text">
+          Заказ оформляется на сайте, подтверждение — через WhatsApp. Сроки доставки зависят от наличия у поставщика.
+          Возврат денег возможен при недоставке заказа.
+        </div>
+      </div>
+      <div class="footer__box">
+        <div class="footer__title">Контакты</div>
+        <div class="footer__text">
+          WhatsApp: <span class="mono" id="waShown"></span><br/>
+          Email: <span class="mono">info@billiard.az</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- CART DRAWER -->
+  <div id="cartOverlay" class="overlay hidden"></div>
+
+  <aside id="cartDrawer" class="drawer hidden" aria-hidden="true">
+    <div class="drawer__header">
+      <div>
+        <div class="drawer__title">Корзина</div>
+        <div class="drawer__subtitle" id="cartSubtitle">0 товаров</div>
+      </div>
+      <button id="closeCartBtn" class="iconBtn" aria-label="Закрыть">✕</button>
+    </div>
+
+    <div class="drawer__content">
+      <div id="cartItems" class="cartItems"></div>
+    </div>
+
+    <div class="drawer__footer">
+      <div class="totalRow">
+        <span>Итого:</span>
+        <span class="total" id="cartTotal">$0</span>
+      </div>
+
+      <div class="note">
+        После подтверждения мы свяжемся с вами в WhatsApp для оплаты и деталей доставки.
+      </div>
+
+      <div class="form">
+        <label class="label" for="customerName">Имя</label>
+        <input id="customerName" class="input" placeholder="Например: Ceyhun" />
+
+        <label class="label" for="customerCity">Город</label>
+        <input id="customerCity" class="input" placeholder="Например: Gəncə / Bakı" />
+
+        <label class="label" for="customerAddress">Адрес (по желанию)</label>
+        <input id="customerAddress" class="input" placeholder="Улица, дом..." />
+      </div>
+
+      <div class="drawer__actions">
+        <button id="clearCartBtn" class="btn btn--ghost">Очистить</button>
+        <button id="checkoutBtn" class="btn btn--primary">Подтвердить → WhatsApp</button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
